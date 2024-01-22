@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Names</title>
+</head>
+<body>
+    <script>
+        let names = ["Nguyễn Văn A", "Vũ Thị B", "Nguyễn Minh C"];
+        let ul = document.createElement("ul");
+        names.forEach(function(name) {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(name));
+            ul.appendChild(li);
+        });
+        document.body.appendChild(ul);
+    </script>
+</body>
+</html>

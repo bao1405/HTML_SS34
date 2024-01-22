@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #list-container {
+            margin-top: 20px;
+        }
+
+        input {
+            height: 20px;
+            margin-top: 20px;
+            border-radius: 40px;
+            color: black;
+        }
+        button{
+            border-radius: 5px ;
+            height: 30px;
+            background-color: greenyellow;
+        }
+    </style>
+    <title>Dynamic List</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="inputText" placeholder="my item">
+        <button onclick="addItem()">add item</button>
+    </div>
+    <div id="list-container">
+        <ul id="itemList"></ul>
+    </div>
+
+    <script>
+        function addItem() {
+            let inputText = document.getElementById('inputText').value;
+            if (inputText.trim() !== '') {
+                var itemList = document.getElementById('itemList');
+                var li = document.createElement('li');
+                li.appendChild(document.createTextNode(inputText));
+                itemList.appendChild(li);
+                document.getElementById('inputText').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

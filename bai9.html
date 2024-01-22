@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            height: 40px;
+            border-radius: 40px;
+        }
+        .user button{
+            background-color: yellowgreen;
+        }
+        .edit button{
+            background-color: yellowgreen;
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+        }
+    </style>
+    <title>Edit Users</title>
+</head>
+<body>
+    <div class="edit">
+        <input type="text" id="editInput">
+        <button onclick="editItem()">Edit Item</button>
+    </div>
+    <div class="user">
+        <ul id="userList">
+            <li>
+                <span>Nguyễn Văn A</span>
+                <button onclick="editUser('Nguyễn Văn A')">Edit</button>
+            </li>
+            <li>
+                <span>Vũ Thị B</span>
+                <button onclick="editUser('Vũ Thị B')">Edit</button>
+            </li>
+            <li>
+                <span>Nguyễn Minh C</span>
+                <button onclick="editUser('Nguyễn Minh C')">Edit</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let editedUser = null;
+
+        function editUser(username) {
+            let editInput = document.getElementById('editInput');
+            editInput.value = username;
+            editedUser = username;
+        }
+
+        function editItem() {
+            if (editedUser) {
+                let newUsername = document.getElementById('editInput').value;
+                let userList = document.getElementById('userList');
+                let items = userList.getElementsByTagName('li');
+
+                for (let i = 0; i < items.length; i++) {
+                    let span = items[i].getElementsByTagName('span')[0];
+                    let button = items[i].getElementsByTagName('button')[0];
+                    let username = span.textContent.trim();
+                    if (username === editedUser) {
+                        span.textContent = newUsername;
+                        break;
+                    }
+                }
+                document.getElementById('editInput').value = '';
+                editedUser = null;
+            }
+        }
+    </script>
+</body>
+</html>

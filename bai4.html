@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+
+        #textToChange {
+            font-size: 18px;
+        }
+        #changeStyleBtn {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .changedStyle { 
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+    <title>Change Style on Button Click</title>
+</head>
+<body>
+    <div>
+        <p id="textToChange">this text is optional</p>
+        <button id="changeStyleBtn" onclick="changeStyle()">Press to say hide text</button>
+    </div>
+
+    <script>
+        function changeStyle() {
+            const textToChange = document.getElementById('textToChange');
+            textToChange.classList.toggle('changedStyle');
+        }
+    </script>
+</body>
+</html>
